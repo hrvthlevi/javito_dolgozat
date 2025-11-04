@@ -17,7 +17,7 @@ body {
   background-color: #303e4e;
   color: #cee7fe;
 }
-.tartalom h2{
+.tartalom h2 {
   padding: 10px;
 }
 .menu {
@@ -26,10 +26,12 @@ body {
 }
 .menu ul {
   display: grid;
-  grid-template-columns: 100px 100px;
-  margin: auto;
-  width: 220px;
-  padding: 0px;
+  grid-auto-flow: column; /* egymás mellé rakja az elemeket */
+  justify-content: center; /* középre igazítja őket */
+  gap: 20px; /* távolság a menüpontok között */
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
 }
 .menu li {
   padding: 10px;
@@ -42,8 +44,8 @@ body {
   font-size: 20px;
 }
 
-.menu li:hover a{
-    color:#758ba0;
+.menu li:hover a {
+  color: #758ba0;
 }
 .cim_kep_sz h2 {
   font-size: 20px;
@@ -56,23 +58,34 @@ body {
   font-size: 15px;
   text-align: justify;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 .cim_kep_sz {
-  background-color: #ffffff;
+ display: grid;
+  grid-template-rows: auto auto 1fr; 
+  /* Cím | kép | szöveg */
+  background: #fff;
   margin: 10px;
-  padding: 5px;
-  margin-left: 0px;
+  padding: 10px;
+}
+.cim_kep_sz .top {
+  display: grid;
+  grid-template-rows: auto 1fr;
 }
 .cim_kep_sz img {
   width: 100%;
+  height: 180px;      /* minden kép pontosan ugyanakkora lesz */
+  object-fit: cover;  /* levágja a széleket, de nem torzul */
+  margin-bottom: 8px;
+
 }
-.lablec a{
-    text-decoration: none;
-    color: #2e5595;
+.lablec a {
+  text-decoration: none;
+  color: #2e5595;
 }
 
-@media screen and (max-width: 500px){
+/* @media screen and (max-width: 500px){
     .menu ul{
         display: grid;
         grid-template-columns: 1fr;
@@ -88,4 +101,4 @@ body {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
-}
+} */
