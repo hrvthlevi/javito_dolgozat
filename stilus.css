@@ -17,6 +17,9 @@ body {
   background-color: #303e4e;
   color: #cee7fe;
 }
+.tartalom h2{
+  padding: 10px;
+}
 .menu {
   background-color: #434f5d;
   text-align: center;
